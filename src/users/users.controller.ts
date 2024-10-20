@@ -14,20 +14,9 @@ export class UsersController {
 
     @Post()
     async createOneUser(
-        @Body('name') name: string,
-        @Body('email') email: string,
-        @Body('password') password: string,
+        @Body('userId') userId: string,
     ) {
-        const generatedId = await this.usersService.createOneUser(
-            name,
-            email,
-            password,
-        );
+        const generatedId = await this.usersService.createOneUser(userId);
         return {id: generatedId};
-    }
-
-    @Get()
-    getAllUsers() {
-        return this.usersService.getAllUser();
     }
 }
